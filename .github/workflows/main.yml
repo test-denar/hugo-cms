@@ -12,10 +12,10 @@ jobs:
           node-version: 12.x
       - name: Install
         run: |
-          npm ci
+          yarn ci
       - name: Build
         run: |
-          npm run build
+          yarn run build
       - name: Waiting for 200 from the Netlify Preview
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor200
