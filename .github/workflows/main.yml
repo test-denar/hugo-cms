@@ -1,16 +1,16 @@
-name: Lighthouse CI
+name: Lighthouse CI for Netlify sites
 on: pull_request
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Build
+      - name: Intsall
         run: |
           yarn
       - name: Build
@@ -21,7 +21,6 @@ jobs:
         id: waitFor200
         with:
           site_name: "gallant-panini-bc8593"
-      - uses: actions/checkout@v2
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
